@@ -11,6 +11,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * The type Web security config.
+ * Author: Huy Dang
+ */
 @Configuration
 @EnableGlobalMethodSecurity(
         prePostEnabled = true,
@@ -23,6 +27,13 @@ public class WebSecurityConfig {
     @Value("${api.version1}")
     private String apiVersion1;
 
+    /**
+     * Security filter chain security filter chain.
+     *
+     * @param http the http
+     * @return the security filter chain
+     * @throws Exception the exception
+     */
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -31,7 +42,8 @@ public class WebSecurityConfig {
                     requests
                             .requestMatchers(
                                     apiVersion1 + "/users/login",
-                                    apiVersion1 + "/users/register")
+                                    apiVersion1 + "/users/register",
+                                    apiVersion1 + "/users/test")
                             .permitAll()
                             .anyRequest().authenticated();
                 })

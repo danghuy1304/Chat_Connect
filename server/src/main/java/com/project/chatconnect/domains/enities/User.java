@@ -1,8 +1,10 @@
 package com.project.chatconnect.domains.enities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.project.chatconnect.domains.enities.base.AuditingEntity;
-import com.project.chatconnect.domains.enums.Gender;
+import com.project.chatconnect.domains.enums.user.Gender;
+import com.project.chatconnect.domains.enums.user.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,10 +13,15 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
+/**
+ * The type User entity.
+ * Author: Huy Dang
+ */
 @Document(collection = "users")
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,46 +29,39 @@ import java.util.Date;
 @Setter
 public class User extends AuditingEntity {
     @Id
-    @Field("id")
     private String id;
 
-    @Field("userName")
     @Indexed(unique = true)
     private String userName;
 
-    @Field("password")
     @JsonIgnore
     private String password;
 
-    @Field("lastName")
     private String lastName;
 
-    @Field("firstName")
     private String firstName;
 
-    @Field("email")
     @Indexed(unique = true)
     private String email;
 
-    @Field("phoneNumber")
     private String phoneNumber;
 
-    @Field("dateOfBirth")
     private Date dateOfBirth;
 
-    @Field("gender")
     private Gender gender;
 
-    @Field("role")
     @DBRef
     private Role role;
 
-    @Field("status")
-    private String status;
+    private UserStatus status;
 
-    @Field("image")
-    private String image;
+    private LocalDateTime lastOnline = LocalDateTime.now();
 
-    @Field("deleted")
-    private Boolean deleted = Boolean.FALSE;
+    private String ipAddress;
+
+    private Integer loginFailCount = 0;
+
+    @DBRef
+    @JsonManagedReference
+    private List<UserImage> images;
 }

@@ -5,8 +5,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * The type Web cors config.
+ * Author: Huy Dang
+ */
 @Configuration
 public class WebCorsConfig {
+    /**
+     * Cors controller web mvc configure.
+     *
+     * @return the web mvc configure
+     */
     @Bean
     public WebMvcConfigurer corsController() {
         return new WebMvcConfigurer() {

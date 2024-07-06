@@ -23,6 +23,10 @@ import java.util.Date;
 import java.util.Map;
 import java.util.function.Function;
 
+/**
+ * The type Jwt token provider.
+ * Author: Huy Dang
+ */
 @Component
 @RequiredArgsConstructor
 public class JwtTokenProvider {
@@ -33,6 +37,12 @@ public class JwtTokenProvider {
     private String secretKey;
     private static final Logger logger = LoggerFactory.getLogger(JwtTokenProvider.class);
 
+    /**
+     * Generate token string.
+     *
+     * @param user the user
+     * @return the string
+     */
     public String generateToken(User user) {
         Map<String, Object> claims = Map.of(
                 "id", user.getId(),
@@ -48,11 +58,22 @@ public class JwtTokenProvider {
 
     }
 
+    /**
+     * Get secret key key.
+     *
+     * @return the secret key
+     */
     private Key getSecretKey() {
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
+    /**
+     * Extract all claims claims.
+     *
+     * @param token the token
+     * @return the claims
+     */
     private Claims extractAllClaims(String token) {
         return Jwts.parser()
                 .setSigningKey(secretKey)
@@ -61,23 +82,56 @@ public class JwtTokenProvider {
                 .getBody();
     }
 
+    /**
+     * Gets expiration date.
+     *
+     * @param token the token
+     * @return the expiration date
+     */
     public Timestamp getExpirationDate(String token) {
         return new Timestamp(extractClaim(token, Claims::getExpiration).getTime());
     }
 
+    /**
+     * Extract claim t.
+     *
+     * @param <T>            the type parameter
+     * @param token          the token
+     * @param claimsResolver the claims resolver
+     * @return the t
+     */
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
 
+    /**
+     * Is token expired boolean.
+     *
+     * @param token the token
+     * @return the boolean
+     */
     public boolean isTokenExpired(String token) {
         return getExpirationDate(token).before(new Date());
     }
 
+    /**
+     * Extract username string.
+     *
+     * @param token the token
+     * @return the string
+     */
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
+    /**
+     * Validate token boolean.
+     *
+     * @param token       the token
+     * @param userDetails the user details
+     * @return the boolean
+     */
     public boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         try {

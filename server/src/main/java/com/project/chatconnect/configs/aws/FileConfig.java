@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * The type File config.
+ * Author: Huy Dang
+ */
 @Configuration
 public class FileConfig {
     @Value("${cloud.aws.access-key}")
@@ -20,6 +24,11 @@ public class FileConfig {
     @Value("${cloud.aws.region}")
     private String region;
 
+    /**
+     * Amazon s 3 amazon s 3.
+     *
+     * @return the amazon s 3
+     */
     @Bean
     public AmazonS3 amazonS3() {
         AWSCredentials awsCredentials = new BasicAWSCredentials(accessKey, secretKey);

@@ -5,6 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * The type Pagination.
+ * Author: Huy Dang
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

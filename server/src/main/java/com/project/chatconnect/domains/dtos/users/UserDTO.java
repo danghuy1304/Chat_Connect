@@ -1,8 +1,8 @@
 package com.project.chatconnect.domains.dtos.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.project.chatconnect.domains.enums.Gender;
-import com.project.chatconnect.domains.enums.RoleCode;
+import com.project.chatconnect.domains.enums.role.RoleCode;
+import com.project.chatconnect.domains.enums.user.Gender;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +12,10 @@ import lombok.Setter;
 import java.util.Date;
 
 
+/**
+ * The type User dto.
+ * Author: Huy Dang
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

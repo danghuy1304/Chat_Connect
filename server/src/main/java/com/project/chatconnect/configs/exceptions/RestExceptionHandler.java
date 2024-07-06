@@ -16,10 +16,20 @@ import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 
+/**
+ * The type Rest exception handler.
+ * Author: Huy Dang
+ */
 @RestControllerAdvice
 @Log4j2
 public class RestExceptionHandler {
 
+    /**
+     * Handle not found exception response entity.
+     *
+     * @param e the e
+     * @return the response entity
+     */
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<RestData<?>> handleNotFoundException(NotFoundException e) {
@@ -27,6 +37,12 @@ public class RestExceptionHandler {
         return RestResponse.error(e.getStatus(), e.getUserMessage(), e.getDevMessage());
     }
 
+    /**
+     * Handle conflict exception response entity.
+     *
+     * @param e the e
+     * @return the response entity
+     */
     @ExceptionHandler(ConflictException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
     public ResponseEntity<RestData<?>> handleConflictException(ConflictException e) {
@@ -34,6 +50,12 @@ public class RestExceptionHandler {
         return RestResponse.error(e.getStatus(), e.getUserMessage(), e.getDevMessage());
     }
 
+    /**
+     * Handle valid input exception response entity.
+     *
+     * @param e the e
+     * @return the response entity
+     */
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<RestData<?>> handleValidInputException(ConstraintViolationException e) {
@@ -41,6 +63,12 @@ public class RestExceptionHandler {
         return RestResponse.error(HttpStatus.BAD_REQUEST, e.getMessage(), e.getMessage());
     }
 
+    /**
+     * Handle bind exception response entity.
+     *
+     * @param e the e
+     * @return the response entity
+     */
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<RestData<?>> handleBindException(BindException e) {
@@ -52,6 +80,12 @@ public class RestExceptionHandler {
         return RestResponse.errors(HttpStatus.BAD_REQUEST, errorMessages);
     }
 
+    /**
+     * Handle http client error exception response entity.
+     *
+     * @param e the e
+     * @return the response entity
+     */
     @ExceptionHandler(HttpClientErrorException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ResponseEntity<RestData<?>> handleHttpClientErrorException(HttpClientErrorException e) {
@@ -59,6 +93,12 @@ public class RestExceptionHandler {
         return RestResponse.error(HttpStatus.FORBIDDEN, e.getMessage(), e.getMessage());
     }
 
+    /**
+     * Handle access denied security exception response entity.
+     *
+     * @param e the e
+     * @return the response entity
+     */
     @ExceptionHandler(AccessDeniedException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ResponseEntity<RestData<?>> handleAccessDeniedSecurityException(AccessDeniedException e) {
@@ -68,6 +108,12 @@ public class RestExceptionHandler {
                 e.getMessage());
     }
 
+    /**
+     * Handle runtime exception response entity.
+     *
+     * @param e the e
+     * @return the response entity
+     */
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<RestData<?>> handleRuntimeException(RuntimeException e) {

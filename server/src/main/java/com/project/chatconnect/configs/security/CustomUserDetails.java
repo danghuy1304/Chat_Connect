@@ -10,14 +10,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * The type Custom user details.
+ */
 @Data
 public class CustomUserDetails implements UserDetails {
     private User user;
 
+    /**
+     * Inject user.
+     *
+     * @param user the user
+     */
     public CustomUserDetails(User user) {
         this.user = user;
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

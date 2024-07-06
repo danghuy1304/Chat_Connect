@@ -17,7 +17,7 @@ spring:
 api:
   version1: api/v1
 jwt:
-  expiration: 604800 # 7 days
+  expiration: 345600 # 4 days
   secret-key: ${JWT_SECRET_KEY}
 cloud:
   aws:

@@ -12,6 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDateTime;
 
+/**
+ * The type Auditing entity.
+ * Author: Huy Dang
+ * CreatedDate: 06/07/2024
+ * ModifiedDate: 06/07/2024
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

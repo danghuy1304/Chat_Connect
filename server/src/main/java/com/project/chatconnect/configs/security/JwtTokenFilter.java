@@ -20,6 +20,10 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * The type Jwt token filter.
+ * Author: Huy Dang
+ */
 @Component
 @RequiredArgsConstructor
 public class JwtTokenFilter extends OncePerRequestFilter {
@@ -72,10 +76,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         final List<Pair<String, String>> bypassTokens = Arrays.asList(
                 Pair.of((API_VERSION1 + "/users/login"), "POST"),
                 Pair.of((API_VERSION1 + "/users/register"), "POST"),
-                Pair.of((API_VERSION1 + "/products"), "GET"),
-                Pair.of((API_VERSION1 + "/categories"), "GET"),
-                Pair.of((API_VERSION1 + "/feedbacks"), "GET"),
-                Pair.of((API_VERSION1 + "/galleries"), "GET")
+                Pair.of((API_VERSION1 + "/users/test"), "GET")
         );
         String requestPath = request.getServletPath();
         String requestMethod = request.getMethod();
