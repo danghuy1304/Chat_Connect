@@ -10,7 +10,8 @@ import java.util.Optional;
 
 /**
  * The type Spring security auditor aware.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Component
 @Primary

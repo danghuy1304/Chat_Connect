@@ -1,8 +1,7 @@
 package com.project.chatconnect.domains.enities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.project.chatconnect.domains.enums.user.UserImageType;
-import com.project.chatconnect.domains.enums.user.UserStatusImage;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.project.chatconnect.domains.enities.base.AuditingEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,29 +11,37 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.List;
+
 /**
- * The type User image entity.
+ * The type Comment.
  *
  * @author Huy Dang
  */
-@Document(collection = "users")
+@Document(collection = "comments")
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
-public class UserImage {
+@Getter
+public class Comment extends AuditingEntity {
     @Id
-    @Field("id")
     private String id;
+
+    private String content;
 
     @Field("userId")
     @DBRef
-    @JsonBackReference
     private User user;
 
-    private String image;
+    @Field("postId")
+    @DBRef
+    private Post post;
 
-    private UserImageType imageType;
+    @DBRef
+    @JsonManagedReference
+    private List<Reaction> reactions;
 
-    private UserStatusImage status;
+    @DBRef
+    @JsonManagedReference
+    private List<PostFile> postFiles;
 }

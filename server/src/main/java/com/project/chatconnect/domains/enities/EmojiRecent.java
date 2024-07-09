@@ -1,8 +1,5 @@
 package com.project.chatconnect.domains.enities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.project.chatconnect.domains.enums.user.UserImageType;
-import com.project.chatconnect.domains.enums.user.UserStatusImage;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,29 +9,27 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.List;
+
 /**
- * The type User image entity.
+ * The type Emoji recent.
  *
  * @author Huy Dang
  */
-@Document(collection = "users")
+@Document(collection = "emojiRecent")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserImage {
+public class EmojiRecent {
     @Id
-    @Field("id")
     private String id;
 
     @Field("userId")
     @DBRef
-    @JsonBackReference
     private User user;
 
-    private String image;
-
-    private UserImageType imageType;
-
-    private UserStatusImage status;
+    @Field("emojiId")
+    @DBRef
+    private List<Emoji> emojis;
 }

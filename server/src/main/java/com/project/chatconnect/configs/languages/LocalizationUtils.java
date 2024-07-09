@@ -11,7 +11,8 @@ import java.util.Objects;
 
 /**
  * The type Localization utils.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Component
 @RequiredArgsConstructor

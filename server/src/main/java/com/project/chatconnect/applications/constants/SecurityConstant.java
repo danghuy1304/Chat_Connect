@@ -4,13 +4,11 @@ import org.springframework.stereotype.Component;
 
 /**
  * The type Security constant.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Component
 public class SecurityConstant {
-    private SecurityConstant() {
-    }
-
     /**
      * The constant TOKEN_PREFIX.
      */

@@ -1,8 +1,6 @@
 package com.project.chatconnect.domains.enities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.project.chatconnect.domains.enums.user.UserImageType;
-import com.project.chatconnect.domains.enums.user.UserStatusImage;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,28 +11,25 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
- * The type User image entity.
+ * The type Permission view post.
  *
  * @author Huy Dang
  */
-@Document(collection = "users")
+@Document(collection = "accessModifiers")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserImage {
+public class PermissionViewPost {
     @Id
-    @Field("id")
     private String id;
+
+    @Field("postId")
+    @DBRef
+    @JsonBackReference
+    private Post post;
 
     @Field("userId")
     @DBRef
-    @JsonBackReference
     private User user;
-
-    private String image;
-
-    private UserImageType imageType;
-
-    private UserStatusImage status;
 }

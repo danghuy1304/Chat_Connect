@@ -21,7 +21,8 @@ import java.time.LocalDateTime;
 
 /**
  * The type Logging aspect.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Component
 @Aspect

@@ -4,7 +4,8 @@ import lombok.Getter;
 
 /**
  * The enum Role code.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Getter
 public enum RoleCode {

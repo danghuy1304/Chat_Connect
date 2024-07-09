@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 
 /**
  * The type Base pagination.
- * Author: Huy Dang
  *
  * @param <E> the type parameter
  * @param <R> the type parameter
+ * @author Huy Dang
  */
 @Component
 public class BasePagination<E, R extends MongoRepository<E, ?>> {

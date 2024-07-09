@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * The type User controller.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
+ * @version 1.0
  */
 @RestController
 @RequestMapping("${api.version1}/users")

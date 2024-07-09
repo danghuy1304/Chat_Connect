@@ -1,8 +1,8 @@
 package com.project.chatconnect.domains.enities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.project.chatconnect.domains.enums.user.UserImageType;
-import com.project.chatconnect.domains.enums.user.UserStatusImage;
+import com.project.chatconnect.domains.enities.base.AuditingEntity;
+import com.project.chatconnect.domains.enums.reaction.ReactionType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,28 +13,32 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
- * The type User image entity.
+ * The type Reaction.
  *
  * @author Huy Dang
  */
-@Document(collection = "users")
+@Document(collection = "reactions")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserImage {
+public class Reaction extends AuditingEntity {
     @Id
-    @Field("id")
     private String id;
+
+    @Field("postId")
+    @DBRef
+    @JsonBackReference
+    private Post post;
+
+    @Field("commentId")
+    @DBRef
+    @JsonBackReference
+    private Comment comment;
 
     @Field("userId")
     @DBRef
-    @JsonBackReference
     private User user;
 
-    private String image;
-
-    private UserImageType imageType;
-
-    private UserStatusImage status;
+    private ReactionType reactionType;
 }

@@ -13,7 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * The type Security config.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Configuration
 @RequiredArgsConstructor

@@ -11,7 +11,8 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * The type File config.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Configuration
 public class FileConfig {

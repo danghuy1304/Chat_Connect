@@ -9,7 +9,8 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 /**
  * The type Persistent config.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Configuration
 @EnableMongoAuditing(auditorAwareRef = "auditorProvider")

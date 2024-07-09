@@ -4,11 +4,11 @@ import java.util.List;
 
 /**
  * The interface Base multiple service.
- * Author: Huy Dang
  *
  * @param <Entity> the type parameter
  * @param <DTO>    the type parameter
  * @param <Type>   the type parameter
+ * @author Huy Dang
  */
 public interface IBaseMultipleService<Entity, DTO, Type> {
     /**

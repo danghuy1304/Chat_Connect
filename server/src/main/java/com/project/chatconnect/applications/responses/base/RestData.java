@@ -9,9 +9,9 @@ import java.util.List;
 
 /**
  * The type Rest data.
- * Author: Huy Dang
  *
  * @param <Data> the type parameter
+ * @author Huy Dang
  */
 @Setter
 @Getter

@@ -1,6 +1,6 @@
 package com.project.chatconnect.domains.enities;
 
-import com.project.chatconnect.domains.enums.role.RoleCode;
+import com.project.chatconnect.domains.enums.emoji.EmojiType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,18 +9,22 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * The type Role entity.
+ * The type Emoji.
  *
  * @author Huy Dang
  */
-@Document(collection = "roles")
+@Document(collection = "emojis")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Role {
+public class Emoji {
     @Id
-    private RoleCode roleCode;
+    private String id;
 
-    private String roleName;
+    private String name;
+
+    private String unicode;
+
+    private EmojiType emojiType;
 }

@@ -2,11 +2,11 @@ package com.project.chatconnect.applications.services.base;
 
 /**
  * The interface Base service.
- * Author: Huy Dang
  *
  * @param <Entity> the type parameter
  * @param <DTO>    the type parameter
  * @param <Type>   the type parameter
+ * @author Huy Dang
  */
 public interface IBaseService<Entity, DTO, Type> extends IBaseReadOnlyService<Entity, Type> {
 

@@ -25,7 +25,8 @@ import java.util.function.Function;
 
 /**
  * The type Jwt token provider.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Component
 @RequiredArgsConstructor
@@ -55,11 +56,10 @@ public class JwtTokenProvider {
                 .expiration(new Date(System.currentTimeMillis() + expiration * 1000L))
                 .signWith(SignatureAlgorithm.HS256, getSecretKey())
                 .compact();
-
     }
 
     /**
-     * Get secret key key.
+     * Get secret key.
      *
      * @return the secret key
      */
@@ -69,7 +69,7 @@ public class JwtTokenProvider {
     }
 
     /**
-     * Extract all claims claims.
+     * Extract all claims.
      *
      * @param token the token
      * @return the claims

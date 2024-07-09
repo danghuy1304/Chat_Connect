@@ -12,6 +12,8 @@ import java.util.List;
 
 /**
  * The type Custom user details.
+ *
+ * @author Huy Dang
  */
 @Data
 public class CustomUserDetails implements UserDetails {

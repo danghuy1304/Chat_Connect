@@ -4,7 +4,8 @@ import lombok.Getter;
 
 /**
  * The enum Gender.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Getter
 public enum Gender {

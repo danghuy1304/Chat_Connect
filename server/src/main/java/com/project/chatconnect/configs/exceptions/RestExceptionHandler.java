@@ -18,7 +18,8 @@ import java.util.List;
 
 /**
  * The type Rest exception handler.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @RestControllerAdvice
 @Log4j2

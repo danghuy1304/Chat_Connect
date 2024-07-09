@@ -22,7 +22,8 @@ import java.util.List;
 
 /**
  * The type Jwt token filter.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Component
 @RequiredArgsConstructor

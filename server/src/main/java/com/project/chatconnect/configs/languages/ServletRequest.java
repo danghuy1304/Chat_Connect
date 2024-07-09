@@ -6,7 +6,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
  * The type Servlet request.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 public class ServletRequest {
     /**

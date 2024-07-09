@@ -9,7 +9,8 @@ import java.util.Optional;
 
 /**
  * The interface User repository.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {

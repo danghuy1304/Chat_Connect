@@ -10,7 +10,8 @@ import java.util.Properties;
 
 /**
  * The type Mail config.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Configuration
 public class MailConfig {

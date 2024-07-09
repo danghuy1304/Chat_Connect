@@ -6,7 +6,8 @@ import org.springframework.http.HttpStatus;
 
 /**
  * The type Conflict exception.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Getter
 @Setter

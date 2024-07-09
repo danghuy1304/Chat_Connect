@@ -8,13 +8,13 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDateTime;
 
 /**
  * The type Auditing entity.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  * CreatedDate: 06/07/2024
  * ModifiedDate: 06/07/2024
  */
@@ -23,19 +23,15 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public abstract class AuditingEntity {
-    @Field("createdBy")
     @CreatedBy
     private String createdBy;
 
-    @Field("updatedBy")
+    @LastModifiedDate
+    private LocalDateTime createdAt;
+
     @LastModifiedBy
     private String updatedBy;
 
-    @Field("updatedAt")
     @CreatedDate
     private LocalDateTime updatedAt;
-
-    @Field("createdAt")
-    @LastModifiedDate
-    private LocalDateTime createdAt;
 }

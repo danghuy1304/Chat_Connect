@@ -11,7 +11,8 @@ import java.time.LocalDateTime;
 
 /**
  * The type Log entry entity.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Document(collection = "logEntries")
 @AllArgsConstructor

@@ -9,9 +9,9 @@ import java.util.List;
 
 /**
  * The type Pagination dto.
- * Author: Huy Dang
  *
  * @param <DTO> the type parameter
+ * @author Huy Dang
  */
 @AllArgsConstructor
 @NoArgsConstructor

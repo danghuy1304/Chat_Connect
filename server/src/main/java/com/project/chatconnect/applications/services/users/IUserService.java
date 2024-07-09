@@ -2,10 +2,10 @@ package com.project.chatconnect.applications.services.users;
 
 /**
  * The interface User service.
- * Auhtor: Huy Dang
+ *
+ * @author Huy Dang
  */
 public interface IUserService {
-
     /**
      * Login string.
      *

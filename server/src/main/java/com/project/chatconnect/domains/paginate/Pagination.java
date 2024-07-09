@@ -7,7 +7,8 @@ import lombok.Setter;
 
 /**
  * The type Pagination.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @AllArgsConstructor
 @NoArgsConstructor

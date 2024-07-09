@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 
 /**
  * The interface Log entry repository.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Repository
 @Primary

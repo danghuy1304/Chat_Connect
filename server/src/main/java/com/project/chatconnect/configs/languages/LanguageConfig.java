@@ -7,7 +7,8 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 
 /**
  * The type Language config.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Configuration
 public class LanguageConfig {

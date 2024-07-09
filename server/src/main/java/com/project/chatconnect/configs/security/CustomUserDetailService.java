@@ -11,7 +11,8 @@ import org.springframework.stereotype.Service;
 
 /**
  * The type Custom user detail service.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Service
 @RequiredArgsConstructor

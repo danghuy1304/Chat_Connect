@@ -6,7 +6,8 @@ import org.springframework.http.HttpStatus;
 
 /**
  * The type Not found exception.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Getter
 @Setter

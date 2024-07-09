@@ -3,6 +3,7 @@ package com.project.chatconnect.domains.enities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.project.chatconnect.domains.enities.base.AuditingEntity;
+import com.project.chatconnect.domains.enums.post.AccessModifier;
 import com.project.chatconnect.domains.enums.user.Gender;
 import com.project.chatconnect.domains.enums.user.UserStatus;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,8 @@ import java.util.List;
 
 /**
  * The type User entity.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Document(collection = "users")
 @AllArgsConstructor
@@ -64,4 +66,6 @@ public class User extends AuditingEntity {
     @DBRef
     @JsonManagedReference
     private List<UserImage> images;
+
+    private AccessModifier accessModifierDefault;
 }

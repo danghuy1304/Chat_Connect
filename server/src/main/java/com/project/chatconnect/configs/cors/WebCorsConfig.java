@@ -7,7 +7,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * The type Web cors config.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Configuration
 public class WebCorsConfig {

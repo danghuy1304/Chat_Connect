@@ -14,7 +14,8 @@ import java.util.Date;
 
 /**
  * The type User dto.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @AllArgsConstructor
 @NoArgsConstructor

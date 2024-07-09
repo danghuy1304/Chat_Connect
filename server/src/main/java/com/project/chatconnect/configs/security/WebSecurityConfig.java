@@ -13,7 +13,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 /**
  * The type Web security config.
- * Author: Huy Dang
+ *
+ * @author Huy Dang
  */
 @Configuration
 @EnableGlobalMethodSecurity(
