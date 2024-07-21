@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -59,4 +60,14 @@ public class Post extends AuditingEntity {
     @DBRef
     @JsonManagedReference
     private List<PermissionViewPost> permissionViewPosts;
+
+    @Field("groupId")
+    @DBRef
+    private Group group;
+
+    @Indexed
+    private List<String> hashtag;
+
+    @Indexed
+    private List<String> keyword;
 }

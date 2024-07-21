@@ -3,9 +3,9 @@
 </script>
 
 <template>
-    <header>
-        Header
-    </header>
+    <footer>
+        Footer
+    </footer>
 </template>
 
 <style lang="css" scoped></style>

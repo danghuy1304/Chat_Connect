@@ -9,27 +9,20 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.util.List;
-
-/**
- * The type Emoji recent.
- *
- * @author Huy Dang
- */
-@Document(collection = "emojiRecent")
+@Document(collection = "HashTagSearch")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class EmojiRecent {
+public class HashTagSearch {
     @Id
     private String id;
+
+    private String hashTag;
+
+    private int count;
 
     @Field("userId")
     @DBRef
     private User user;
-
-    @Field("emojis")
-    @DBRef
-    private List<Emoji> emojis;
 }

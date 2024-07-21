@@ -1,5 +1,6 @@
 package com.project.chatconnect.domains.enities;
 
+import com.project.chatconnect.domains.enities.base.AuditingEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,24 +13,26 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.util.List;
 
 /**
- * The type Emoji recent.
+ * The type Group.
  *
  * @author Huy Dang
  */
-@Document(collection = "emojiRecent")
+@Document(collection = "groups")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class EmojiRecent {
+public class Group extends AuditingEntity {
     @Id
     private String id;
 
-    @Field("userId")
-    @DBRef
-    private User user;
+    private String name;
 
-    @Field("emojis")
+    private String cover;
+
+    private boolean isPrivate;
+
+    @Field("users")
     @DBRef
-    private List<Emoji> emojis;
+    private List<User> users;
 }

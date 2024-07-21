@@ -1,5 +1,7 @@
 package com.project.chatconnect.domains.enities;
 
+import com.project.chatconnect.domains.enities.base.AuditingEntity;
+import com.project.chatconnect.domains.enums.friend.FriendRequestStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,27 +11,27 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.util.List;
-
 /**
- * The type Emoji recent.
+ * The type Friend request.
  *
  * @author Huy Dang
  */
-@Document(collection = "emojiRecent")
+@Document(collection = "friendRequest")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class EmojiRecent {
+public class FriendRequest extends AuditingEntity {
     @Id
     private String id;
+
+    private FriendRequestStatus status;
 
     @Field("userId")
     @DBRef
     private User user;
 
-    @Field("emojis")
+    @Field("friendId")
     @DBRef
-    private List<Emoji> emojis;
+    private User friend;
 }
