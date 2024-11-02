@@ -2,13 +2,18 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './routers/router';
 import { createPinia } from 'pinia';
+import './styles/style.css';
 
 const app = createApp(App);
-const pinia = createPinia()
+const pinia = createPinia();
 
-// import vuetify from './plugins/vuetify';
+// Components
+import BaseButton from '@/components/button/BaseButton.vue';
+app.component('b-button', BaseButton);
 
-// app.use(vuetify);
+import vuetify from './plugins/vuetify';
+
+app.use(vuetify);
 app.use(pinia);
 app.use(router);
 app.mount('#app')

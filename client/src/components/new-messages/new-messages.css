@@ -1,0 +1,11 @@
+.new-messages {
+    position: fixed;
+    bottom: 15px;
+    right: 30px;
+}
+
+.new-messages__button button {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}

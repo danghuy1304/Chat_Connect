@@ -61,6 +61,8 @@ public class User extends AuditingEntity {
 
     private String ipAddress;
 
+    private String location;
+
     private Integer loginFailCount = 0;
 
     @DBRef

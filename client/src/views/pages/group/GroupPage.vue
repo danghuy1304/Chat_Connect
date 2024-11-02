@@ -3,9 +3,7 @@
 </script>
 
 <template>
-    <header>
-        Header
-    </header>
+    <h1>GroupPage</h1>
 </template>
 
 <style lang="css" scoped></style>

@@ -1,7 +1,7 @@
 <template>
     <button :style="'color:' + props.color" ref="refBtn"
         :class="[btnType(props.type), { 'focus-visible': focusVisible }]">
-        <i v-if="icon != null" :class="[icon]" :style="'color:' + props.color"></i>
+        <i v-if="icon != null" :class="[icon]" :style="'color:' + props.iconColor + '; font-size: ' + iconSize"></i>
         {{ props.value }}
         <slot></slot>
     </button>
@@ -26,7 +26,18 @@ const props = defineProps({
         type: String,
         default: null
     },
-    color: {}
+    color: {
+        type: String,
+        default: null
+    },
+    iconSize: {
+        type: String,
+        default: null
+    },
+    iconColor: {
+        type: String,
+        default: 'var(--color-text)'
+    }
 })
 
 // Khai báo biến

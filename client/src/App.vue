@@ -9,4 +9,4 @@ import TheFrontSite from '@/views/layouts/TheFrontSite.vue'
   </div>
 </template>
 
-<style lang="css" src="@/styles/style.css" scoped></style>
+<style lang="css"></style>
