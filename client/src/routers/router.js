@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { requireAuth } from "../middlewares/authenticate";
 import containerRouter from "./containerRouter";
+import { translate } from "../configs/i18n/locale";
 
 const routes = [
     {
@@ -16,7 +17,7 @@ const routes = [
         name: 'NotFound',
         component: () => import('@/views/pages/not-found/NotFoundPage.vue'),
         meta: {
-            title: '404 - PAGE NOT FOUND'
+            title: translate('RouterTitle.NotFound'),
         }
     },
 ];

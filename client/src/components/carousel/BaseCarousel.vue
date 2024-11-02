@@ -1,6 +1,5 @@
 <script lang="js" setup>
 import { Carousel, Navigation, Pagination } from 'vue3-carousel';
-import { defineProps } from "vue";
 // ---------------------- Props -------------------------
 const props = defineProps({
     autoplay: {

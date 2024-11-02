@@ -15,7 +15,7 @@ import HeaderMenu from './HeaderMenu.vue';
             <div class="header--search">
                 <div class="search__box">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Tìm kiếm" />
+                    <input type="text" :placeholder="$t('Layout.Header.Tooltip.Search')" />
                 </div>
             </div>
         </div>

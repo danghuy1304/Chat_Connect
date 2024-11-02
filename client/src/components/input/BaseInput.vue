@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits, watch, defineExpose } from "vue";
+import { ref, watch } from "vue";
 
 const props = defineProps({
     required: {

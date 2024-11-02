@@ -4,14 +4,22 @@ import router from './routers/router';
 import { createPinia } from 'pinia';
 import './styles/style.css';
 
+import vuetify from './plugins/vuetify';
+import { globalComponents } from './configs/global/components';
+import { globalProperties } from './configs/global/properties';
+import { setupI18n } from './configs/i18n/locale';
+
 const app = createApp(App);
 const pinia = createPinia();
 
-// Components
-import BaseButton from '@/components/button/BaseButton.vue';
-app.component('b-button', BaseButton);
+// i18n
+setupI18n(app);
 
-import vuetify from './plugins/vuetify';
+// Global components
+globalComponents(app);
+
+// Global methods
+globalProperties(app);
 
 app.use(vuetify);
 app.use(pinia);

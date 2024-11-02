@@ -1,3 +1,5 @@
+import { translate } from '../configs/i18n/locale';
+
 export default [{
     path: '/',
     name: "Container",
@@ -8,7 +10,7 @@ export default [{
             name: "Home",
             component: () => import('@/views/pages/home/HomePage.vue'),
             meta: {
-                title: "Trang chủ",
+                title: translate('RouterTitle.Home', { pipe: ' | ' }),
                 authenticate: false
             }
         },
@@ -17,7 +19,7 @@ export default [{
             name: "Friend",
             component: () => import('@/views/pages/home/HomePage.vue'),
             meta: {
-                title: "Bạn bè",
+                title: translate('RouterTitle.Friend', { pipe: ' | ' }),
                 authenticate: false
             }
         },
@@ -26,7 +28,7 @@ export default [{
             name: "Watch",
             component: () => import('@/views/pages/home/HomePage.vue'),
             meta: {
-                title: "Video",
+                title: translate('RouterTitle.Watch', { pipe: ' | ' }),
                 authenticate: false
             }
         },
@@ -35,7 +37,7 @@ export default [{
             name: "Group",
             component: () => import('@/views/pages/group/GroupPage.vue'),
             meta: {
-                title: "Nhóm",
+                title: translate('RouterTitle.Group', { pipe: ' | ' }),
                 authenticate: false
             }
         }

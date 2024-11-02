@@ -4,7 +4,7 @@
 
 <template>
     <section>
-        <h1>HomePage</h1>
+        <h1>{{ $t('Page.Home') }}</h1>
     </section>
 </template>
 

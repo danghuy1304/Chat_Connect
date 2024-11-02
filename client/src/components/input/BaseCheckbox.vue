@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { defineProps, watch, ref, defineEmits } from 'vue';
+import { watch, ref } from 'vue';
 import _ from 'lodash';
 
 // ------------------------------ Props ---------------------------------
