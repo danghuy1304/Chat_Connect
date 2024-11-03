@@ -1,4 +1,4 @@
-import { translate } from '../configs/i18n/locale';
+import { translate } from '../configs/i18n';
 
 export default [{
     path: '/',
@@ -38,6 +38,15 @@ export default [{
             component: () => import('@/views/pages/group/GroupPage.vue'),
             meta: {
                 title: translate('RouterTitle.Group', { pipe: ' | ' }),
+                authenticate: false
+            }
+        },
+        {
+            path: '/meetings',
+            name: "Meeting",
+            component: () => import('@/views/pages/group/GroupPage.vue'),
+            meta: {
+                title: translate('RouterTitle.Meeting', { pipe: ' | ' }),
                 authenticate: false
             }
         }

@@ -6,6 +6,7 @@ export default {
         Watch: 'Video {pipe} Chat Connect',
         Login: 'Login {pipe} Chat Connect',
         Register: 'Register {pipe} Chat Connect',
+        Meeting: 'Meeting {pipe} Chat Connect',
         NotFound: '404 - Not Found'
     },
     Button: {
@@ -27,7 +28,12 @@ export default {
     Layout: {
         Header: {
             Tooltip: {
-                Search: 'Search'
+                Search: 'Search',
+                Home: 'Home',
+                Group: 'Group',
+                Friend: 'Friends',
+                Watch: 'Video',
+                Meeting: 'Meeting',
             }
         },
     },

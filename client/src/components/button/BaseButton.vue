@@ -1,5 +1,6 @@
 <template>
-    <button :style="'color:' + props.color" ref="refBtn"
+    <button type="button" :style="'color:' + props.color" ref="refBtn"
+        v-tooltip="{ disabled: tooltip === null, text: tooltip, openDelay: 300 }"
         :class="[btnType(props.type), { 'focus-visible': focusVisible }]">
         <i v-if="icon != null" :class="[icon]" :style="'color:' + props.iconColor + '; font-size: ' + iconSize"></i>
         {{ props.value }}
@@ -117,13 +118,18 @@ button:focus-visible {
     outline-offset: var(--outline-offset);
 }
 
-.tooltip {
+.btn__tooltip {
+    display: block;
     position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     border: 1px solid var(--color-greyish);
     width: fit-content;
     padding: 5px 10px;
     border-radius: var(--border-radis-components);
-    background-color: var(--color-white);
+    color: var(--color-white);
+    background-color: var(--color-black);
 }
 
 .focus-visible:focus-visible {

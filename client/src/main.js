@@ -7,7 +7,8 @@ import './styles/style.css';
 import vuetify from './plugins/vuetify';
 import { globalComponents } from './configs/global/components';
 import { globalProperties } from './configs/global/properties';
-import { setupI18n } from './configs/i18n/locale';
+import { globalDirectives } from './configs/global/directives';
+import { setupI18n } from './configs/i18n';
 
 const app = createApp(App);
 const pinia = createPinia();
@@ -20,6 +21,9 @@ globalComponents(app);
 
 // Global methods
 globalProperties(app);
+
+// Global directives
+globalDirectives(app);
 
 app.use(vuetify);
 app.use(pinia);

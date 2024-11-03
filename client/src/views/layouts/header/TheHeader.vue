@@ -24,7 +24,7 @@ import HeaderMenu from './HeaderMenu.vue';
         </div>
         <div class="header--right">
             <div class="header--message header--button">
-                <b-button icon="fa-brands fa-facebook-messenger" color="var(--color-light-grey)" tooltip="Thông báo"
+                <b-button icon="fa-brands fa-facebook-messenger" color="var(--color-light-grey)" tooltip="Tin nhắn"
                     iconSize="var(--front-size-icon)" />
             </div>
             <div class="header--notification header--button">

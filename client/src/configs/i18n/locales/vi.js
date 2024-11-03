@@ -6,6 +6,7 @@ export default {
         Watch: 'Video {pipe} Chat Connect',
         Login: 'Đăng nhập {pipe} Chat Connect',
         Register: 'Đăng ký {pipe} Chat Connect',
+        Meeting: 'Cuộc họp {pipe} Chat Connect',
         NotFound: '404 - Not Found'
     },
     Button: {
@@ -27,7 +28,12 @@ export default {
     Layout: {
         Header: {
             Tooltip: {
-                Search: 'Tìm kiếm'
+                Search: 'Tìm kiếm',
+                Home: 'Trang chủ',
+                Group: 'Nhóm',
+                Friend: 'Bạn bè',
+                Watch: 'Video',
+                Meeting: 'Cuộc họp',
             }
         },
     },

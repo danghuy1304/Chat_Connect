@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { requireAuth } from "../middlewares/authenticate";
 import containerRouter from "./containerRouter";
-import { translate } from "../configs/i18n/locale";
+import { translate } from "../configs/i18n";
 
 const routes = [
     {

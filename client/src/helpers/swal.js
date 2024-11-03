@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
-import { translate } from '../configs/i18n/locale'
+import { translate } from '../configs/i18n'
 
 export const dialog = (title, icon, text, confirmButtonText = translate('Button.Title.Ok'), showCancelButton = false) => {
     Swal.fire({
