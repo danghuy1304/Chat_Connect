@@ -34,6 +34,9 @@ export default {
                 Friend: 'Bạn bè',
                 Watch: 'Video',
                 Meeting: 'Cuộc họp',
+                Messenger: 'Tin nhắn',
+                Notification: 'Thông báo',
+                Account: 'Tài khoản',
             }
         },
     },

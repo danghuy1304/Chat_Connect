@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <router-view :key="$route.fullPath"></router-view>
+    <h1>MeetingPage</h1>
 </template>
 
 <style lang="css" scoped></style>

@@ -17,7 +17,7 @@ const routes = [
         name: 'NotFound',
         component: () => import('@/views/pages/not-found/NotFoundPage.vue'),
         meta: {
-            title: translate('RouterTitle.NotFound'),
+            title: 'RouterTitle.NotFound',
         }
     },
 ];
@@ -36,8 +36,9 @@ const router = createRouter({
     }
 });
 
-router.beforeEach((to, from, next) => {
-    document.title = to.meta.title;
+router.beforeEach(async (to, from, next) => {
+    const title = translate(to.meta.title, { pipe: ' | ' });
+    document.title = title;
     if (to.meta.authenticate && !localStorage.getItem('user')) {
         requireAuth(to, from, next);
     }

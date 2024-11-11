@@ -5,7 +5,7 @@
 <template>
     <div class="new-messages">
         <div class="new-messages__button">
-            <b-button icon="fa-solid fa-pen-to-square" color="var(--color-light-grey)" iconSize="var(--front-size-icon)"
+            <b-button icon="pen-to-square" color="var(--color-light-grey)" iconSize="var(--front-size-icon)"
                 tooltip="Tin nhắn mới" />
         </div>
     </div>

@@ -1,5 +1,11 @@
 <template>
-    <input ref="input" type="text" v-model="inputValue" :required="props.required" />
+    <div :class="['input', className]">
+        <label class="input__label" v-if="label !== null">{{ label }}</label>
+        <input class="input__field" ref="input" :type="type" v-model="inputValue" :required="props.required"
+            v-tooltip="{ disabled: tooltip === '', text: tooltip, openDelay: 300 }" v-focus="props.focus"
+            :placeholder="placeholder" />
+        <div v-if="errorMessage" class="input__error">errorMessage</div>
+    </div>
 </template>
 
 <script setup>
@@ -11,6 +17,34 @@ const props = defineProps({
         default: false
     },
     modelValue: {},
+    tooltip: {
+        type: String,
+        default: ''
+    },
+    focus: {
+        type: Boolean,
+        default: false
+    },
+    type: {
+        type: String,
+        default: "text"
+    },
+    placeholder: {
+        type: String,
+        default: null
+    },
+    errorMessage: {
+        type: String,
+        default: null
+    },
+    className: {
+        type: String,
+        default: null
+    },
+    label: {
+        type: String,
+        default: null
+    }
 })
 const emit = defineEmits(["update:modelValue"])
 const input = ref(null)
@@ -46,5 +80,16 @@ input {
 
 input:focus {
     border: 1px solid var(--color-primary);
+}
+
+.input__label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.input__error {
+    color: var(--color-red);
+    margin-top: 5px;
 }
 </style>

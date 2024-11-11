@@ -15,7 +15,7 @@ import HeaderMenu from './HeaderMenu.vue';
             <div class="header--search">
                 <div class="search__box">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" :placeholder="$t('Layout.Header.Tooltip.Search')" />
+                    <b-input type="search" :placeholder="$t('Layout.Header.Tooltip.Search')" />
                 </div>
             </div>
         </div>
@@ -23,16 +23,16 @@ import HeaderMenu from './HeaderMenu.vue';
             <HeaderMenu />
         </div>
         <div class="header--right">
-            <div class="header--message header--button">
-                <b-button icon="fa-brands fa-facebook-messenger" color="var(--color-light-grey)" tooltip="Tin nhắn"
-                    iconSize="var(--front-size-icon)" />
+            <div class="header--messenger header--button">
+                <b-button icon="fa-brands fa-facebook-messenger" color="var(--color-light-grey)"
+                    :tooltip="$t('Layout.Header.Tooltip.Messenger')" iconSize="var(--front-size-icon)" />
             </div>
             <div class="header--notification header--button">
-                <b-button icon="fa-solid fa-bell" color="var(--color-light-grey)" tooltip="Thông báo"
-                    iconSize="var(--front-size-icon)" />
+                <b-button icon="bell" color="var(--color-light-grey)"
+                    :tooltip="$t('Layout.Header.Tooltip.Notification')" iconSize="var(--front-size-icon)" />
             </div>
             <div class="header--profile header--button">
-                <b-button icon="fa-solid fa-user" color="var(--color-light-grey)" tooltip="Trang cá nhân"
+                <b-button icon="user" color="var(--color-light-grey)" :tooltip="$t('Layout.Header.Tooltip.Account')"
                     iconSize="var(--front-size-icon)" />
             </div>
         </div>

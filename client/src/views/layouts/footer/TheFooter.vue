@@ -5,7 +5,7 @@
 <template>
     <footer>
         <div class="footer--copyright">
-            &copy; 2024 Copyright by <a href="https://github.com/huydang2132">Dang Huy</a>
+            &copy; 2024 Copyright by <a target="_blank" href="https://github.com/huydang2132">Dang Huy</a>
         </div>
     </footer>
 </template>
@@ -25,5 +25,6 @@ footer {
 footer .footer--copyright a {
     color: var(--color-white);
     text-decoration: none;
+    font-weight: 600;
 }
 </style>

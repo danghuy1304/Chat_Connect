@@ -1,34 +1,32 @@
-import { translate } from '../configs/i18n';
-
 export default [{
     path: '/',
     name: "Container",
-    component: () => import('../views/layouts/TheContainer.vue'),
+    component: () => import('@/views/layouts/TheContainer.vue'),
     children: [
         {
             path: '/',
             name: "Home",
             component: () => import('@/views/pages/home/HomePage.vue'),
             meta: {
-                title: translate('RouterTitle.Home', { pipe: ' | ' }),
+                title: 'RouterTitle.Home',
                 authenticate: false
             }
         },
         {
             path: '/friends',
             name: "Friend",
-            component: () => import('@/views/pages/home/HomePage.vue'),
+            component: () => import('@/views/pages/friend/FriendPage.vue'),
             meta: {
-                title: translate('RouterTitle.Friend', { pipe: ' | ' }),
+                title: 'RouterTitle.Friend',
                 authenticate: false
             }
         },
         {
             path: '/watch',
             name: "Watch",
-            component: () => import('@/views/pages/home/HomePage.vue'),
+            component: () => import('@/views/pages/watch/WatchPage.vue'),
             meta: {
-                title: translate('RouterTitle.Watch', { pipe: ' | ' }),
+                title: 'RouterTitle.Watch',
                 authenticate: false
             }
         },
@@ -37,16 +35,16 @@ export default [{
             name: "Group",
             component: () => import('@/views/pages/group/GroupPage.vue'),
             meta: {
-                title: translate('RouterTitle.Group', { pipe: ' | ' }),
+                title: 'RouterTitle.Group',
                 authenticate: false
             }
         },
         {
             path: '/meetings',
             name: "Meeting",
-            component: () => import('@/views/pages/group/GroupPage.vue'),
+            component: () => import('@/views/pages/meeting/MeetingPage.vue'),
             meta: {
-                title: translate('RouterTitle.Meeting', { pipe: ' | ' }),
+                title: 'RouterTitle.Meeting',
                 authenticate: false
             }
         }

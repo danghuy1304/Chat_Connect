@@ -3,15 +3,19 @@ import App from './App.vue'
 import router from './routers/router';
 import { createPinia } from 'pinia';
 import './styles/style.css';
+import iconFrontAwesome from '@/configs/icons/font-awesome';
 
 import vuetify from './plugins/vuetify';
-import { globalComponents } from './configs/global/components';
-import { globalProperties } from './configs/global/properties';
-import { globalDirectives } from './configs/global/directives';
-import { setupI18n } from './configs/i18n';
+import { globalComponents } from '@/configs/global/components';
+import { globalProperties } from '@/configs/global/properties';
+import { globalDirectives } from '@/configs/global/directives';
+import { setupI18n } from '@/configs/i18n';
 
 const app = createApp(App);
 const pinia = createPinia();
+
+// icons front-awesome
+iconFrontAwesome;
 
 // i18n
 setupI18n(app);

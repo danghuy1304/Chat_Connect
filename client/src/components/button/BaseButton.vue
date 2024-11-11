@@ -1,8 +1,9 @@
 <template>
-    <button type="button" :style="'color:' + props.color" ref="refBtn"
-        v-tooltip="{ disabled: tooltip === null, text: tooltip, openDelay: 300 }"
+    <button v-focus="props.focus" type="button" :style="'color:' + props.color" ref="refBtn"
+        v-tooltip="{ disabled: tooltip === '', text: tooltip, openDelay: 300 }"
         :class="[btnType(props.type), { 'focus-visible': focusVisible }]">
-        <i v-if="icon != null" :class="[icon]" :style="'color:' + props.iconColor + '; font-size: ' + iconSize"></i>
+        <font-awesome-icon v-if="icon !== null" :icon="props.icon" class="btn__icon"
+            :style="{ 'font-size': iconSize, 'color': iconColor }" />
         {{ props.value }}
         <slot></slot>
     </button>
@@ -20,12 +21,12 @@ const props = defineProps({
         default: null
     },
     icon: {
-        type: String,
+        type: [String, Array],
         default: null
     },
     tooltip: {
         type: String,
-        default: null
+        default: ''
     },
     color: {
         type: String,
@@ -38,6 +39,10 @@ const props = defineProps({
     iconColor: {
         type: String,
         default: 'var(--color-text)'
+    },
+    focus: {
+        type: Boolean,
+        default: false
     }
 })
 

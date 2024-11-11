@@ -34,6 +34,9 @@ export default {
                 Friend: 'Friends',
                 Watch: 'Video',
                 Meeting: 'Meeting',
+                Messenger: 'Messenger',
+                Notification: 'Notification',
+                Account: 'Account',
             }
         },
     },

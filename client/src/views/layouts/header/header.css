@@ -48,9 +48,11 @@ header {
     padding: 0 10px;
 }
 
-.header--left .header--search .search__box input {
+.header--left .header--search .search__box :deep(input) {
     border: none;
     border-radius: var(--border-radius-large);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     padding: 5px;
     padding-left: 0;
     outline: none;
@@ -122,10 +124,9 @@ header {
 }
 
 
-.header--center .header--menu .menu__item a i {
+.header--center .header--menu .menu__item a .menu__item--icon {
     font-size: var(--front-size-icon);
 }
-
 
 .header--right {
     display: flex;
