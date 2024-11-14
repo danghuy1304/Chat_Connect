@@ -1,11 +1,18 @@
 <script lang="ts" setup>
+import CreatePoster from './create-poster/CreatePoster.vue';
+
 
 </script>
 
 <template>
     <section>
-        <h1>{{ $t('Page.Home') }}</h1>
+        <CreatePoster />
     </section>
 </template>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+section {
+    width: 100%;
+    padding: 100px;
+}
+</style>
