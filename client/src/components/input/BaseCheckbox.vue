@@ -1,16 +1,3 @@
-<template>
-    <div v-if="type === 'checkbox'" class="form-check">
-        <input :class="[`form-check-input`]" :indeterminate="indeterminate" :value="value" v-model="inputValue"
-            type="checkbox" :id="id !== null ? id : uid" :name="name" />
-        <label v-if="label !== null" :class="[`form-check-label`]" :for="id !== null ? id : uid">{{ label }}</label>
-    </div>
-    <div v-else-if="type === 'radio'" class="form-check">
-        <input :class="[`form-check-input`]" :value="value" v-model="inputValue" type="radio"
-            :id="id !== null ? id : uid" :name="name" />
-        <label v-if="label !== null" :class="[`form-check-label`]" :for="id !== null ? id : uid">{{ label }}</label>
-    </div>
-</template>
-
 <script setup>
 import { watch, ref } from 'vue';
 import _ from 'lodash';
@@ -69,6 +56,19 @@ watch(() => inputValue.value, (newVal) => {
 // ------------------------------ Hàm xử lý ------------------------------
 
 </script>
+
+<template>
+    <div v-if="type === 'checkbox'" class="form-check">
+        <input :class="[`form-check-input`]" :indeterminate="indeterminate" :value="value" v-model="inputValue"
+            type="checkbox" :id="id !== null ? id : uid" :name="name" />
+        <label v-if="label !== null" :class="[`form-check-label`]" :for="id !== null ? id : uid">{{ label }}</label>
+    </div>
+    <div v-else-if="type === 'radio'" class="form-check">
+        <input :class="[`form-check-input`]" :value="value" v-model="inputValue" type="radio"
+            :id="id !== null ? id : uid" :name="name" />
+        <label v-if="label !== null" :class="[`form-check-label`]" :for="id !== null ? id : uid">{{ label }}</label>
+    </div>
+</template>
 
 <style scoped>
 .form-check {

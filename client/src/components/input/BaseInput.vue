@@ -1,35 +1,3 @@
-<template>
-    <div :class="['input', className]">
-        <label class="input__label" v-if="label !== null">{{ label }}</label>
-        <div class="input__field-container" v-if="type === 'textarea'">
-            <textarea :class="['input__field', { 'input__error': isError }]" ref="input" v-model="inputValue"
-                :required="props.required" v-tooltip="{ disabled: tooltip === '', text: tooltip, openDelay: 300 }"
-                v-focus="props.focus" :placeholder="placeholder" :maxlength="props.max"></textarea>
-            <div v-if="props.countChar && props.max !== null"
-                :class="['count-char', { 'textarea__over-limit': isOverLimit }]">
-                <span>{{ countChar }} / {{ props.max }}</span>
-            </div>
-        </div>
-        <div class="input__field-container" v-else>
-            <input :class="['input__field', { 'input__error': isError }]" ref="input" :type="type" v-model="inputValue"
-                :required="props.required" v-tooltip="{ disabled: tooltip === '', text: tooltip, openDelay: 300 }"
-                v-focus="props.focus" :placeholder="placeholder" :min="props.min" :max="props.max"
-                :readonly="props.readonly" :accept="props.accept" />
-            <font-awesome-icon v-if="props.type === 'password' && props.showPassword" :icon="['fas', iconEye]"
-                class="input__icon" @click="togglePassword" />
-        </div>
-        <font-awesome-icon v-if="icon !== null" :icon="icon" class="input__icon" @click="handleClickIcon" />
-        <div v-if="isError" class="error__messages">
-            <div v-if="typeof props.errors === 'string'" class="error__messages--item">{{ props.errors }}</div>
-            <div v-if="Array.isArray(props.errors)" class="error__messages--item" v-for="error in props.errors"
-                :key="error">{{ error }}</div>
-        </div>
-    </div>
-    <div>
-
-    </div>
-</template>
-
 <script setup>
 import { onMounted, ref, watch } from "vue";
 
@@ -144,6 +112,35 @@ defineExpose({
     focus
 })
 </script>
+
+<template>
+    <div :class="['input', className]">
+        <label class="input__label" v-if="label !== null">{{ label }}</label>
+        <div class="input__field-container" v-if="type === 'textarea'">
+            <textarea :class="['input__field', { 'input__error': isError }]" ref="input" v-model="inputValue"
+                :required="props.required" v-tooltip="{ disabled: tooltip === '', text: tooltip, openDelay: 300 }"
+                v-focus="props.focus" :placeholder="placeholder" :maxlength="props.max"></textarea>
+            <div v-if="props.countChar && props.max !== null"
+                :class="['count-char', { 'textarea__over-limit': isOverLimit }]">
+                <span>{{ countChar }} / {{ props.max }}</span>
+            </div>
+        </div>
+        <div class="input__field-container" v-else>
+            <input :class="['input__field', { 'input__error': isError }]" ref="input" :type="type" v-model="inputValue"
+                :required="props.required" v-tooltip="{ disabled: tooltip === '', text: tooltip, openDelay: 300 }"
+                v-focus="props.focus" :placeholder="placeholder" :min="props.min" :max="props.max"
+                :readonly="props.readonly" :accept="props.accept" />
+            <font-awesome-icon v-if="props.type === 'password' && props.showPassword" :icon="['fas', iconEye]"
+                class="input__icon" @click="togglePassword" />
+        </div>
+        <font-awesome-icon v-if="icon !== null" :icon="icon" class="input__icon" @click="handleClickIcon" />
+        <div v-if="isError" class="error__messages">
+            <div v-if="typeof props.errors === 'string'" class="error__messages--item">{{ props.errors }}</div>
+            <div v-if="Array.isArray(props.errors)" class="error__messages--item" v-for="error in props.errors"
+                :key="error">{{ error }}</div>
+        </div>
+    </div>
+</template>
 
 <style scoped>
 textarea.input__field,

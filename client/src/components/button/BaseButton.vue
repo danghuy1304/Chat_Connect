@@ -1,14 +1,3 @@
-<template>
-    <button v-focus="props.focus" type="button" :style="'color:' + props.color" ref="refBtn"
-        v-tooltip="{ disabled: tooltip === '', text: tooltip, openDelay: 300 }"
-        :class="[btnType(props.type), { 'focus-visible': focusVisible }]">
-        <font-awesome-icon v-if="icon !== null" :icon="props.icon" class="btn__icon"
-            :style="{ 'font-size': iconSize, 'color': iconColor }" />
-        {{ props.value }}
-        <slot></slot>
-    </button>
-</template>
-
 <script setup>
 import { ref } from 'vue';
 const props = defineProps({
@@ -70,6 +59,17 @@ defineExpose({
     focus
 });
 </script>
+
+<template>
+    <button v-focus="props.focus" type="button" :style="'color:' + props.color" ref="refBtn"
+        v-tooltip="{ disabled: tooltip === '', text: tooltip, openDelay: 300 }"
+        :class="[btnType(props.type), { 'focus-visible': focusVisible }]">
+        <font-awesome-icon v-if="icon !== null" :icon="props.icon" class="btn__icon"
+            :style="{ 'font-size': iconSize, 'color': iconColor }" />
+        {{ props.value }}
+        <slot></slot>
+    </button>
+</template>
 
 <style scoped>
 button {
