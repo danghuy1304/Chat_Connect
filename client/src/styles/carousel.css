@@ -16,7 +16,7 @@
     align-items: center;
 }
 
-.carousel__item>img {
+.carousel__item > img {
     object-fit: cover;
     width: 100%;
 }

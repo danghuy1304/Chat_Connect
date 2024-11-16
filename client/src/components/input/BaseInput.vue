@@ -4,140 +4,212 @@ import { onMounted, ref, watch } from "vue";
 const props = defineProps({
     required: {
         type: Boolean,
-        default: false
+        default: false,
     },
     modelValue: {},
     tooltip: {
         type: String,
-        default: ''
+        default: "",
     },
     focus: {
         type: Boolean,
-        default: false
+        default: false,
     },
     type: {
         type: String,
-        default: "text"
+        default: "text",
     },
     placeholder: {
         type: String,
-        default: null
+        default: null,
     },
     errors: {
         type: [String, Array],
-        default: null
+        default: null,
     },
     className: {
         type: String,
-        default: null
+        default: null,
     },
     label: {
         type: String,
-        default: null
+        default: null,
     },
     countChar: {
         type: Boolean,
-        default: false
+        default: false,
     },
     autocomplete: {
         type: Boolean,
-        default: false
+        default: false,
     },
     min: {
         type: [Number, String],
-        default: null
+        default: null,
     },
     max: {
         type: [Number, String],
-        default: null
+        default: null,
     },
     readonly: {
         type: [Boolean, String],
-        default: false
+        default: false,
     },
     accept: {
         type: String,
-        default: null
+        default: null,
     },
     showPassword: {
         type: [Boolean, String],
-        default: false
+        default: false,
     },
     icon: {
         type: [String, Array],
-        default: null
-    }
-})
-const emit = defineEmits(["update:modelValue"]);
+        default: null,
+    },
+});
+const emit = defineEmits(["update:modelValue", "enter", "clickIcon"]);
 const input = ref(null);
 const inputValue = ref(props.modelValue);
 const isError = ref(false);
-const countChar = ref(0);
+const charLength = ref(0);
 const isOverLimit = ref(false);
-const iconEye = ref('eye');
+const iconEye = ref("eye");
+const hasChanged = ref(false);
 
 onMounted(() => {
-    const hasError = props.errors !== null && props.errors !== '' && props.errors.length > 0 && !props.errors.every(error => error === '');
+    const hasError =
+        props.errors !== null &&
+        props.errors !== "" &&
+        props.errors.length > 0 &&
+        !props.errors.every((error) => error === "");
     if (hasError) {
         isError.value = true;
     }
-})
+});
 
-watch(() => inputValue.value, (newValue, oldValue) => {
-    emit("update:modelValue", newValue);
-    isError.value = newValue === oldValue;
-    countChar.value = newValue.length;
-    isOverLimit.value = countChar.value > props.max;
-})
+watch(
+    () => inputValue.value,
+    (newValue, oldValue) => {
+        emit("update:modelValue", newValue);
+        hasChanged.value = newValue !== oldValue;
+        charLength.value = newValue.length;
+        isOverLimit.value = charLength.value > props.max;
+    }
+);
 
-watch(() => props.modelValue, (newValue) => {
-    inputValue.value = newValue;
-    countChar.value = newValue.length;
-})
+watch(
+    () => props.modelValue,
+    (newValue) => {
+        inputValue.value = newValue;
+        charLength.value = newValue.length;
+    }
+);
 
 // ------------- Hàm xử lý -------------------
 const togglePassword = () => {
-    input.value.type = input.value.type === 'password' ? 'text' : 'password';
-    iconEye.value = input.value.type === 'password' ? 'eye' : 'eye-slash';
-}
+    input.value.type = input.value.type === "password" ? "text" : "password";
+    iconEye.value = input.value.type === "password" ? "eye" : "eye-slash";
+};
 
 const handleClickIcon = () => {
-    emit('clickIcon');
-}
+    emit("clickIcon");
+};
+
+const handleEnter = () => {
+    emit("enter");
+};
+
+const handleBlur = () => {
+    if (hasChanged.value && isError.value) {
+        isError.value = false;
+    }
+};
 
 const focus = () => {
     input.value.focus();
-}
+};
 defineExpose({
-    focus
-})
+    focus,
+});
 </script>
 
 <template>
     <div :class="['input', className]">
         <label class="input__label" v-if="label !== null">{{ label }}</label>
         <div class="input__field-container" v-if="type === 'textarea'">
-            <textarea :class="['input__field', { 'input__error': isError }]" ref="input" v-model="inputValue"
-                :required="props.required" v-tooltip="{ disabled: tooltip === '', text: tooltip, openDelay: 300 }"
-                v-focus="props.focus" :placeholder="placeholder" :maxlength="props.max"></textarea>
-            <div v-if="props.countChar && props.max !== null"
-                :class="['count-char', { 'textarea__over-limit': isOverLimit }]">
-                <span>{{ countChar }} / {{ props.max }}</span>
+            <textarea
+                :class="['input__field', { input__error: isError }]"
+                ref="input"
+                v-model="inputValue"
+                :required="props.required"
+                v-tooltip="{
+                    disabled: tooltip === '',
+                    text: tooltip,
+                    openDelay: 300,
+                }"
+                v-focus="props.focus"
+                :placeholder="placeholder"
+                :maxlength="props.max"
+                :readonly="props.readonly"
+                @blur="handleBlur"
+            ></textarea>
+            <div
+                v-if="props.countChar && props.max !== null"
+                :class="['count-char', { 'textarea__over-limit': isOverLimit }]"
+            >
+                <span>{{ charLength }} / {{ props.max }}</span>
             </div>
         </div>
         <div class="input__field-container" v-else>
-            <input :class="['input__field', { 'input__error': isError }]" ref="input" :type="type" v-model="inputValue"
-                :required="props.required" v-tooltip="{ disabled: tooltip === '', text: tooltip, openDelay: 300 }"
-                v-focus="props.focus" :placeholder="placeholder" :min="props.min" :max="props.max"
-                :readonly="props.readonly" :accept="props.accept" />
-            <font-awesome-icon v-if="props.type === 'password' && props.showPassword" :icon="['fas', iconEye]"
-                class="input__icon" @click="togglePassword" />
+            <input
+                :class="['input__field', { input__error: isError }]"
+                ref="input"
+                :type="type"
+                v-model="inputValue"
+                :required="props.required"
+                v-tooltip="{
+                    disabled: tooltip === '',
+                    text: tooltip,
+                    openDelay: 300,
+                }"
+                v-focus="props.focus"
+                :placeholder="placeholder"
+                :min="props.min"
+                :max="props.max"
+                :readonly="props.readonly"
+                :accept="props.accept"
+                @blur="handleBlur"
+                @keydown.enter="handleEnter"
+            />
+            <font-awesome-icon
+                v-if="props.type === 'password' && props.showPassword"
+                :icon="['fas', iconEye]"
+                class="input__icon"
+                @click="togglePassword"
+            />
         </div>
-        <font-awesome-icon v-if="icon !== null" :icon="icon" class="input__icon" @click="handleClickIcon" />
+        <font-awesome-icon
+            v-if="icon !== null"
+            :icon="icon"
+            class="input__icon"
+            @click="handleClickIcon"
+        />
         <div v-if="isError" class="error__messages">
-            <div v-if="typeof props.errors === 'string'" class="error__messages--item">{{ props.errors }}</div>
-            <div v-if="Array.isArray(props.errors)" class="error__messages--item" v-for="error in props.errors"
-                :key="error">{{ error }}</div>
+            <div
+                v-if="typeof props.errors === 'string'"
+                class="error__messages--item"
+            >
+                {{ props.errors }}
+            </div>
+            <div
+                v-if="Array.isArray(props.errors)"
+                class="error__messages--item"
+                v-for="error in props.errors"
+                :key="error"
+            >
+                {{ error }}
+            </div>
         </div>
     </div>
 </template>

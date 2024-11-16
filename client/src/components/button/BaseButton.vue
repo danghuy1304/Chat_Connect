@@ -1,71 +1,80 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 const props = defineProps({
     value: {
         type: String,
-        default: null
+        default: null,
     },
     type: {
         type: String,
-        default: null
+        default: null,
     },
     icon: {
         type: [String, Array],
-        default: null
+        default: null,
     },
     tooltip: {
         type: String,
-        default: ''
+        default: "",
     },
     color: {
         type: String,
-        default: null
+        default: null,
     },
     iconSize: {
         type: String,
-        default: null
+        default: null,
     },
     iconColor: {
         type: String,
-        default: 'var(--color-text)'
+        default: "var(--color-text)",
     },
     focus: {
         type: Boolean,
-        default: false
-    }
-})
+        default: false,
+    },
+});
 
 // Khai báo biến
 const refBtn = ref(null);
-const focusVisible = ref(false)
+const focusVisible = ref(false);
 
 const btnType = (type) => {
     switch (type) {
-        case 'secondary':
-            return 'btn-secondary';
-        case 'primary':
-            return 'btn-primary';
+        case "secondary":
+            return "btn-secondary";
+        case "primary":
+            return "btn-primary";
     }
-}
+};
 
 // ---------------------- Hàm xử lý ----------------------------
 
 const focus = (visible = true) => {
     refBtn.value.focus();
     focusVisible.value = visible;
-}
+};
 
 defineExpose({
-    focus
+    focus,
 });
 </script>
 
 <template>
-    <button v-focus="props.focus" type="button" :style="'color:' + props.color" ref="refBtn"
+    <button
+        v-focus="props.focus"
+        type="button"
+        :style="'color:' + props.color"
+        ref="refBtn"
         v-tooltip="{ disabled: tooltip === '', text: tooltip, openDelay: 300 }"
-        :class="[btnType(props.type), { 'focus-visible': focusVisible }]">
-        <font-awesome-icon v-if="icon !== null" :icon="props.icon" class="btn__icon"
-            :style="{ 'font-size': iconSize, 'color': iconColor }" />
+        :class="[btnType(props.type), { 'focus-visible': focusVisible }]"
+    >
+        <font-awesome-icon
+            v-if="icon !== null"
+            :icon="props.icon"
+            class="btn__icon"
+            :style="{ 'font-size': iconSize, color: iconColor }"
+        />
         {{ props.value }}
         <slot></slot>
     </button>
@@ -89,7 +98,7 @@ button {
     line-height: 0;
 }
 
-button>i {
+button > i {
     font-size: 15px;
 }
 

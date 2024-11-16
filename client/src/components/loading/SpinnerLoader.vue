@@ -1,6 +1,4 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
     <span class="loader"></span>
@@ -20,7 +18,7 @@
 }
 
 .loader::after {
-    content: '';
+    content: "";
     box-sizing: border-box;
     position: absolute;
     left: 50%;

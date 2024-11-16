@@ -1,12 +1,11 @@
 <script setup>
-import TheFrontSite from '@/views/layouts/TheFrontSite.vue'
-
+import TheFrontSite from "@/views/layouts/TheFrontSite.vue";
 </script>
 
 <template>
-  <div>
-    <TheFrontSite></TheFrontSite>
-  </div>
+    <div>
+        <TheFrontSite></TheFrontSite>
+    </div>
 </template>
 
 <style lang="css"></style>

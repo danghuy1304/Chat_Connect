@@ -29,12 +29,15 @@ const props = defineProps({
 
 
 // ---------------------- Methods -----------------------
-
 </script>
 
 <template>
     <div :id="id">
-        <Carousel :autoplay="props.autoplay" :wrap-around="true" :breakpoints="props.breakpoints">
+        <Carousel
+            :autoplay="props.autoplay"
+            :wrap-around="true"
+            :breakpoints="props.breakpoints"
+        >
             <slot></slot>
 
             <template #addons>
