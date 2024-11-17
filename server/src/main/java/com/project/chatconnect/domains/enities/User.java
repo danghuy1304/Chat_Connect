@@ -2,10 +2,10 @@ package com.project.chatconnect.domains.enities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.project.chatconnect.constants.type.HTypeGender;
+import com.project.chatconnect.constants.type.HTypeAccessModifier;
+import com.project.chatconnect.constants.type.HTypeUserStatus;
 import com.project.chatconnect.domains.enities.base.AuditingEntity;
-import com.project.chatconnect.domains.enums.post.AccessModifier;
-import com.project.chatconnect.domains.enums.user.Gender;
-import com.project.chatconnect.domains.enums.user.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -50,12 +50,12 @@ public class User extends AuditingEntity {
 
     private Date dateOfBirth;
 
-    private Gender gender;
+    private HTypeGender gender;
 
     @DBRef
     private Role role;
 
-    private UserStatus status;
+    private HTypeUserStatus status;
 
     private LocalDateTime lastOnline = LocalDateTime.now();
 
@@ -69,5 +69,5 @@ public class User extends AuditingEntity {
     @JsonManagedReference
     private List<UserImage> images;
 
-    private AccessModifier accessModifierDefault;
+    private HTypeAccessModifier accessModifierDefault;
 }

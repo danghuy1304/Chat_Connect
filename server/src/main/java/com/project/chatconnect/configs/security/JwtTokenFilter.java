@@ -1,6 +1,6 @@
 package com.project.chatconnect.configs.security;
 
-import com.project.chatconnect.applications.constants.SecurityConstant;
+import com.project.chatconnect.constants.SecurityConstant;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

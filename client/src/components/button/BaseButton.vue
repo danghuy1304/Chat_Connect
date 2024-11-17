@@ -27,11 +27,15 @@ const props = defineProps({
     },
     iconColor: {
         type: String,
-        default: "var(--color-text)",
+        default: null,
     },
     focus: {
         type: Boolean,
         default: false,
+    },
+    class: {
+        type: String,
+        default: null,
     },
 });
 
@@ -67,7 +71,11 @@ defineExpose({
         :style="'color:' + props.color"
         ref="refBtn"
         v-tooltip="{ disabled: tooltip === '', text: tooltip, openDelay: 300 }"
-        :class="[btnType(props.type), { 'focus-visible': focusVisible }]"
+        :class="[
+            btnType(props.type),
+            { 'focus-visible': focusVisible },
+            props.class,
+        ]"
     >
         <font-awesome-icon
             v-if="icon !== null"
@@ -92,7 +100,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     border: 1px solid transparent;
     position: relative;
     line-height: 0;
@@ -149,5 +157,10 @@ button:focus-visible {
 .focus-visible:focus-visible {
     outline: 2px solid var(--color-outline);
     outline-offset: var(--outline-offset);
+}
+
+.btn__icon {
+    font-size: 1rem;
+    color: var(--color-text);
 }
 </style>

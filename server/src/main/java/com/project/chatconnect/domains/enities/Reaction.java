@@ -1,8 +1,8 @@
 package com.project.chatconnect.domains.enities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.project.chatconnect.constants.type.HTypeReaction;
 import com.project.chatconnect.domains.enities.base.AuditingEntity;
-import com.project.chatconnect.domains.enums.reaction.ReactionType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,5 +40,5 @@ public class Reaction extends AuditingEntity {
     @DBRef
     private User user;
 
-    private ReactionType reactionType;
+    private HTypeReaction reactionType;
 }

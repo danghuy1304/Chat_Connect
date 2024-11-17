@@ -1,8 +1,8 @@
 package com.project.chatconnect.domains.enities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.project.chatconnect.constants.type.HTypePostFile;
 import com.project.chatconnect.domains.enities.base.AuditingEntity;
-import com.project.chatconnect.domains.enums.post.PostFileType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,7 +30,7 @@ public class PostFile extends AuditingEntity {
 
     private String url;
 
-    private PostFileType fileType;
+    private HTypePostFile fileType;
 
     @Field("commentId")
     @DBRef

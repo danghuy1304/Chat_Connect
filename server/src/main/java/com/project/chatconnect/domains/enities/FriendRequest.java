@@ -1,7 +1,7 @@
 package com.project.chatconnect.domains.enities;
 
+import com.project.chatconnect.constants.type.HTypeFriendRequestStatus;
 import com.project.chatconnect.domains.enities.base.AuditingEntity;
-import com.project.chatconnect.domains.enums.friend.FriendRequestStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +25,7 @@ public class FriendRequest extends AuditingEntity {
     @Id
     private String id;
 
-    private FriendRequestStatus status;
+    private HTypeFriendRequestStatus status;
 
     @Field("userId")
     @DBRef

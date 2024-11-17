@@ -1,8 +1,8 @@
 package com.project.chatconnect.domains.enities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.project.chatconnect.constants.type.HTypeAccessModifier;
 import com.project.chatconnect.domains.enities.base.AuditingEntity;
-import com.project.chatconnect.domains.enums.post.AccessModifier;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,7 +29,7 @@ public class Post extends AuditingEntity {
     @Id
     private String id;
 
-    private AccessModifier accessModifier;
+    private HTypeAccessModifier accessModifier;
 
     private String content;
 

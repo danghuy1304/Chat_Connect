@@ -1,6 +1,6 @@
 package com.project.chatconnect.domains.enities;
 
-import com.project.chatconnect.domains.enums.emoji.EmojiType;
+import com.project.chatconnect.constants.type.HTypeEmoji;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,5 +26,5 @@ public class Emoji {
 
     private String unicode;
 
-    private EmojiType emojiType;
+    private HTypeEmoji emojiType;
 }

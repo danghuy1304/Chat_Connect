@@ -22,7 +22,11 @@ export default {
             Create: 'Tạo',
             Edit: 'Sửa',
             Close: 'Đóng',
-            Search: 'Tìm kiếm'
+            Search: 'Tìm kiếm',
+            LiveStream: 'Phát trực tiếp',
+            PhotoOrVideo: 'Ảnh/video',
+            FeelingOrActivity: 'Cảm xúc/hoạt động',
+            CreateGroupChat: 'Tạo nhóm chat mới'
         }
     },
     Layout: {
@@ -41,6 +45,13 @@ export default {
         },
     },
     Page: {
-        Home: 'Trang chủ'
+        Home: {
+            CreatePoster: {
+                InputPlaceholder: 'Bạn đang nghĩ gì vậy?',
+            },
+            Contact: {
+                Title: 'Liên hệ'
+            }
+        }
     }
 }

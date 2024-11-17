@@ -1,11 +1,12 @@
-<script lang="js" setup>
-
-</script>
+<script lang="js" setup></script>
 
 <template>
     <footer>
         <div class="footer--copyright">
-            &copy; 2024 Copyright by <a target="_blank" href="https://github.com/huydang2132">Dang Huy</a>
+            &copy; 2024 Copyright by
+            <a target="_blank" href="https://github.com/danghuy1304">
+                Dang Huy
+            </a>
         </div>
     </footer>
 </template>
@@ -13,7 +14,7 @@
 <style lang="css" scoped>
 footer {
     width: 100%;
-    height: 50px;
+    height: var(--height-footer);
     display: flex;
     justify-content: center;
     align-items: center;

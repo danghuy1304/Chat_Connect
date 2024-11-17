@@ -1,6 +1,6 @@
 package com.project.chatconnect.domains.enities;
 
-import com.project.chatconnect.domains.enums.role.RoleCode;
+import com.project.chatconnect.constants.type.HTypeRole;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +20,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 public class Role {
     @Id
-    private RoleCode roleCode;
+    private HTypeRole roleCode;
 
     private String roleName;
 }

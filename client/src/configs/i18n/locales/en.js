@@ -22,7 +22,11 @@ export default {
             Create: 'Create',
             Edit: 'Edit',
             Close: 'Close',
-            Search: 'Search'
+            Search: 'Search',
+            LiveStream: 'Live stream',
+            PhotoOrVideo: 'Photo/video',
+            FeelingOrActivity: 'Feeling/activity',
+            CreateGroupChat: 'Create group chat'
         }
     },
     Layout: {
@@ -41,6 +45,13 @@ export default {
         },
     },
     Page: {
-        Home: 'Home'
+        Home: {
+            CreatePoster: {
+                InputPlaceholder: 'What\'s on your mind?',
+            },
+            Contact: {
+                Title: 'Contacts'
+            }
+        }
     }
 }

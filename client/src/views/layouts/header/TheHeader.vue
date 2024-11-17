@@ -1,7 +1,5 @@
 <script lang="js" setup>
 import HeaderMenu from './HeaderMenu.vue';
-
-
 </script>
 
 <template>
@@ -9,13 +7,22 @@ import HeaderMenu from './HeaderMenu.vue';
         <div class="header--left">
             <div class="header--logo">
                 <router-link to="/">
-                    <img src="@/assets/images/logo.png" alt="logo" />
+                    <font-awesome-icon
+                        class="header--logo--icon"
+                        :icon="['fab', 'snapchat']"
+                    />
                 </router-link>
             </div>
             <div class="header--search">
                 <div class="search__box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <b-input type="search" :placeholder="$t('Layout.Header.Tooltip.Search')" />
+                    <label class="search__box--icon" for="search-input">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
+                    <b-input
+                        id="search-input"
+                        type="text"
+                        :placeholder="$t('Layout.Header.Tooltip.Search')"
+                    />
                 </div>
             </div>
         </div>
@@ -24,16 +31,28 @@ import HeaderMenu from './HeaderMenu.vue';
         </div>
         <div class="header--right">
             <div class="header--messenger header--button">
-                <b-button icon="fa-brands fa-facebook-messenger" color="var(--color-light-grey)"
-                    :tooltip="$t('Layout.Header.Tooltip.Messenger')" iconSize="var(--front-size-icon)" />
+                <b-button
+                    icon="fa-brands fa-facebook-messenger"
+                    color="var(--color-light-grey)"
+                    :tooltip="$t('Layout.Header.Tooltip.Messenger')"
+                    iconSize="var(--front-size-icon)"
+                />
             </div>
             <div class="header--notification header--button">
-                <b-button icon="bell" color="var(--color-light-grey)"
-                    :tooltip="$t('Layout.Header.Tooltip.Notification')" iconSize="var(--front-size-icon)" />
+                <b-button
+                    icon="bell"
+                    color="var(--color-light-grey)"
+                    :tooltip="$t('Layout.Header.Tooltip.Notification')"
+                    iconSize="var(--front-size-icon)"
+                />
             </div>
             <div class="header--profile header--button">
-                <b-button icon="user" color="var(--color-light-grey)" :tooltip="$t('Layout.Header.Tooltip.Account')"
-                    iconSize="var(--front-size-icon)" />
+                <b-button
+                    icon="user"
+                    color="var(--color-light-grey)"
+                    :tooltip="$t('Layout.Header.Tooltip.Account')"
+                    iconSize="var(--front-size-icon)"
+                />
             </div>
         </div>
     </header>

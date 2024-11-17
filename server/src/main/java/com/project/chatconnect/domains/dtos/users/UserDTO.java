@@ -1,8 +1,8 @@
 package com.project.chatconnect.domains.dtos.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.project.chatconnect.domains.enums.role.RoleCode;
-import com.project.chatconnect.domains.enums.user.Gender;
+import com.project.chatconnect.constants.type.HTypeGender;
+import com.project.chatconnect.constants.type.HTypeRole;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,9 +40,9 @@ public class UserDTO {
 
     private Date dateOfBirth;
 
-    private Gender gender;
+    private HTypeGender gender;
 
-    private RoleCode roleCode;
+    private HTypeRole roleCode;
 
     private String status;
 

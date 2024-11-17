@@ -1,7 +1,7 @@
 package com.project.chatconnect.domains.enities;
 
+import com.project.chatconnect.constants.type.HTypeMessage;
 import com.project.chatconnect.domains.enities.base.AuditingEntity;
-import com.project.chatconnect.domains.enums.chat.MessageType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,7 +35,7 @@ public class Messages extends AuditingEntity {
     @DBRef
     private Set<User> reader;
 
-    private MessageType type;
+    private HTypeMessage type;
 
     @Field("chatId")
     @DBRef

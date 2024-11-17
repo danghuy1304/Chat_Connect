@@ -1,6 +1,6 @@
 package com.project.chatconnect.annotation.validator;
 
-import com.project.chatconnect.validator.HVNumberValidator;
+import com.project.chatconnect.validator.HNumberValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
@@ -16,14 +16,14 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-@Constraint(validatedBy = HVNumberValidator.class)
+@Constraint(validatedBy = HNumberValidator.class)
 public @interface HVNumber {
     /**
      * Message string.
      *
      * @return the string
      */
-    String message() default HVNumberValidator.NOT_NUMBER_MESSAGE;
+    String message() default HNumberValidator.NOT_NUMBER_MESSAGE;
 
     /**
      * Groups class [ ].

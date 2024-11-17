@@ -1,8 +1,8 @@
 package com.project.chatconnect.domains.enities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.project.chatconnect.domains.enums.user.UserImageType;
-import com.project.chatconnect.domains.enums.user.UserStatusImage;
+import com.project.chatconnect.constants.type.HTypeUserImage;
+import com.project.chatconnect.constants.type.HTypeUserStatusImage;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,7 +34,7 @@ public class UserImage {
 
     private String image;
 
-    private UserImageType imageType;
+    private HTypeUserImage imageType;
 
-    private UserStatusImage status;
+    private HTypeUserStatusImage status;
 }

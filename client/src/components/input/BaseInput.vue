@@ -27,7 +27,11 @@ const props = defineProps({
         type: [String, Array],
         default: null,
     },
-    className: {
+    id: {
+        type: String,
+        default: null,
+    },
+    class: {
         type: String,
         default: null,
     },
@@ -135,10 +139,15 @@ defineExpose({
 </script>
 
 <template>
-    <div :class="['input', className]">
-        <label class="input__label" v-if="label !== null">{{ label }}</label>
+    <div :class="['input', props.class]">
+        <label
+            :class="['input__label', { required: props.required }]"
+            v-if="label !== null"
+            >{{ label }}</label
+        >
         <div class="input__field-container" v-if="type === 'textarea'">
             <textarea
+                :id="props.id"
                 :class="['input__field', { input__error: isError }]"
                 ref="input"
                 v-model="inputValue"
@@ -163,6 +172,7 @@ defineExpose({
         </div>
         <div class="input__field-container" v-else>
             <input
+                :id="props.id"
                 :class="['input__field', { input__error: isError }]"
                 ref="input"
                 :type="type"
@@ -215,6 +225,14 @@ defineExpose({
 </template>
 
 <style scoped>
+.input {
+    width: 100%;
+}
+
+.input .input__field-container {
+    width: 100%;
+}
+
 textarea.input__field,
 input.input__field {
     min-height: var(--height-btn-default);

@@ -1,7 +1,7 @@
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 @import "bootstrap/dist/css/bootstrap.min.css";
-@import 'vue3-carousel/dist/carousel.css';
-@import './carousel.css';
+@import "vue3-carousel/dist/carousel.css";
+@import "./carousel.css";
 
 :root {
     --color-primary: #006fff;
@@ -15,7 +15,7 @@
     --color-light-grey: #e4e6ea;
     --color-grey: #929292;
     --color-border: #ddd;
-    --color-box-shadow: rgba(23, 27, 42, 0.24);
+    --color-box-shadow: rgba(50, 50, 50, 0.2);
     --color-outline: rgb(153, 202, 255);
     --color-red: #f44336;
     --color-pink: #ffdde0;
@@ -23,37 +23,44 @@
     --color-blue: #002fff;
     --color-orange: #ffa500;
     --color-yellow: #ffce3d;
-    --color-cyan: #00FFFF;
-    --color-blue-violet: #8A2BE2;
-    --color-input-header: #f0f2f5;
+    --color-cyan: #00ffff;
+    --color-blue-violet: #8a2be2;
+    --color-hover-btn: #f0f2f5;
+    --color-text-opacity: #65686c;
 
-    --bg-main: #f5f5fa;
+    --bg-main: #f2f4f7;
     --bg-footer: #006fff;
     --bg-opacity: rgba(172, 172, 172, 0.6);
 
-    --width-sidebar: 250px;
+    --width-sidebar: 25%;
     --width-chat-box: 500px;
+    --width-content: 50%;
+    --width-account: 25%;
 
-    --height-header: 80px;
+    --height-header: 55px;
     --height-btn-default: 36px;
-    --height-footer: 200px;
+    --height-footer: 50px;
     --height-chat-box: 500px;
 
     --border-radius-page: 8px;
-    --border-radius: 4px;
+    --border-radius: 6px;
     --border-radius-large: 20px;
     --outline-offset: 2px;
 
     --v-theme-overlay-multiplier: 2;
 
     --front-size-icon: 20px;
+    --size-avatar: 43px;
+
+    --width-croll: 6px;
+    --height-croll: 8px;
 }
 
 * {
     padding: 0;
     margin: 0;
     font-size: 14px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
 }
 
@@ -74,13 +81,32 @@ body {
     top: -3px;
 }
 
+.line {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.line::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-border);
+    display: block;
+}
+
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 8px;
+    width: var(--width-croll);
+    height: var(--height-croll);
 }
 
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #e3e3e3;
 }
 
 ::-webkit-scrollbar-thumb {

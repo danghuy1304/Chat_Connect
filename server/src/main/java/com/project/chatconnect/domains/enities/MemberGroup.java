@@ -1,7 +1,7 @@
 package com.project.chatconnect.domains.enities;
 
+import com.project.chatconnect.constants.type.HTypePermissionMemberGroup;
 import com.project.chatconnect.domains.enities.base.AuditingEntity;
-import com.project.chatconnect.domains.enums.group.PermissionMemberGroup;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +25,7 @@ public class MemberGroup extends AuditingEntity {
     @Id
     private String id;
 
-    private PermissionMemberGroup permission;
+    private HTypePermissionMemberGroup permission;
 
     private String status;
 
