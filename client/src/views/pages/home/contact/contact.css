@@ -1,0 +1,101 @@
+.contact--container {
+    max-height: calc(100vh - var(--height-header) - var(--height-footer));
+    overflow-y: auto;
+    padding-right: var(--width-croll);
+    width: 100%;
+}
+
+.contact--container .contact--header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact--container .contact--header .contact--header__title > span {
+    color: var(--color-text-opacity);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.contact--container .contact--header .contact--header__option {
+    display: flex;
+}
+
+.contact--header .contact--header__option .option--item .option__btn {
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.contact--header
+    .contact--header__option
+    .option--item
+    .option__btn
+    :deep(.btn__icon) {
+    color: var(--color-text-opacity);
+}
+
+.contact--header .contact--header__option .option--item .option__btn:hover {
+    background-color: var(--color-greyish);
+}
+
+.contact--content ul {
+    padding: 0;
+    margin: 0;
+}
+
+.contact--content ul li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    border-radius: var(--border-radius);
+    padding: 8px 5px;
+    cursor: pointer;
+}
+
+.contact--content ul li:hover {
+    background-color: var(--color-greyish);
+}
+
+.contact--content ul li:focus-visible {
+    outline: 2px solid var(--color-outline);
+    outline-offset: var(--outline-offset);
+}
+
+.contact--content ul li .contact--content__avatar img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+}
+
+.contact--content ul li .contact--content__name {
+    padding-left: 8px;
+}
+
+.contact--content ul li .contact--content__name > span {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-opacity);
+}
+
+.contact--footer {
+    display: flex;
+}
+
+.contact--footer .group-chat__btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    background-color: transparent;
+    color: var(--color-text-opacity);
+}
+
+.contact--footer .group-chat__btn :deep(.btn__icon) {
+    color: var(--color-text-opacity);
+    font-size: 1.2rem;
+}
+
+.contact--footer .group-chat__btn:hover {
+    background-color: var(--color-greyish);
+}
