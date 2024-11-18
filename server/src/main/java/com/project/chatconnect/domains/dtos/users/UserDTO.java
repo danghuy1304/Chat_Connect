@@ -1,6 +1,7 @@
 package com.project.chatconnect.domains.dtos.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.project.chatconnect.annotation.validator.HVItems;
 import com.project.chatconnect.constants.type.HTypeGender;
 import com.project.chatconnect.constants.type.HTypeRole;
 import jakarta.validation.constraints.NotNull;
@@ -40,8 +41,10 @@ public class UserDTO {
 
     private Date dateOfBirth;
 
+    @HVItems(target = HTypeGender.class)
     private HTypeGender gender;
 
+    @HVItems(target = HTypeRole.class)
     private HTypeRole roleCode;
 
     private String status;
