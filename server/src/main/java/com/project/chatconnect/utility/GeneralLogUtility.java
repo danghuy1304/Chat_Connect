@@ -17,6 +17,8 @@ import java.util.Map;
 
 /**
  * The type General log utility.
+ *
+ * @author Huy Dang
  */
 @Component
 public class GeneralLogUtility {
@@ -31,7 +33,6 @@ public class GeneralLogUtility {
      * Instantiates a new General log utility.
      *
      * @param logEntryRepository the log entry repository
-     * @param auditorAware       the auditor aware
      */
     @Autowired
     public GeneralLogUtility(LogEntryRepository logEntryRepository) {
