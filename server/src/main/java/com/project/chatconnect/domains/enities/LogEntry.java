@@ -23,23 +23,15 @@ public class LogEntry {
     @Id
     private String id;
 
-    private String controller;
-
-    private String method;
+    private String type;
 
     private String api;
 
     private String ipAddress;
 
-    private String userName;
+    private String userId;
 
     private String userAgent;
 
-    private String status;
-
     private LocalDateTime logTime = LocalDateTime.now();
-
-    private Object response;
-
-    private String error;
 }

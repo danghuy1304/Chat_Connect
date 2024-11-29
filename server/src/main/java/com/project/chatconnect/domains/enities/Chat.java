@@ -30,7 +30,7 @@ public class Chat extends AuditingEntity {
     @DBRef
     private Set<User> users;
 
-    private boolean isGroup;
+    private Boolean isGroup = Boolean.FALSE;
 
     private Messages lastMessage;
 

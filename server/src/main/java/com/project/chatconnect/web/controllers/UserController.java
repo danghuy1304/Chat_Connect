@@ -1,12 +1,18 @@
 package com.project.chatconnect.web.controllers;
 
 import com.project.chatconnect.applications.services.users.IUserService;
+import com.project.chatconnect.utility.GeneralLogUtility;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The type User controller.
@@ -20,6 +26,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     private final IUserService userService;
 
+    private final GeneralLogUtility generalLogUtility;
+
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     /**
      * API test.
@@ -27,8 +36,11 @@ public class UserController {
      * @return the string
      */
     @GetMapping("/test")
-    public String test() {
-        return "Hello";
+    public ResponseEntity<String> test() {
+        Map<String, Object> details = new HashMap<>();
+        details.put("name", "test");
+        generalLogUtility.writeLog(logger, "Test", details);
+        return ResponseEntity.status(200).body("Test API");
     }
 
     /**

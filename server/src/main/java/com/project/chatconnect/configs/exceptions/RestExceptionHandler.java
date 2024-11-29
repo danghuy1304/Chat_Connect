@@ -34,7 +34,7 @@ public class RestExceptionHandler {
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<RestData<?>> handleNotFoundException(NotFoundException e) {
-        log.error("NotFoundException: {0}", e);
+        log.error("NotFoundException: ", e);
         return RestResponse.error(e.getStatus(), e.getUserMessage(), e.getDevMessage());
     }
 
@@ -47,7 +47,7 @@ public class RestExceptionHandler {
     @ExceptionHandler(ConflictException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
     public ResponseEntity<RestData<?>> handleConflictException(ConflictException e) {
-        log.error("ConflictException: {0}", e);
+        log.error("ConflictException: ", e);
         return RestResponse.error(e.getStatus(), e.getUserMessage(), e.getDevMessage());
     }
 
@@ -60,7 +60,7 @@ public class RestExceptionHandler {
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<RestData<?>> handleValidInputException(ConstraintViolationException e) {
-        log.error("ConstraintViolationException: {0}", e);
+        log.error("ConstraintViolationException: ", e);
         return RestResponse.error(HttpStatus.BAD_REQUEST, e.getMessage(), e.getMessage());
     }
 
@@ -77,7 +77,7 @@ public class RestExceptionHandler {
                 .stream()
                 .map(FieldError::getDefaultMessage)
                 .toList();
-        log.error("BindException: {0}", e);
+        log.error("BindException: ", e);
         return RestResponse.errors(HttpStatus.BAD_REQUEST, errorMessages);
     }
 
@@ -90,7 +90,7 @@ public class RestExceptionHandler {
     @ExceptionHandler(HttpClientErrorException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ResponseEntity<RestData<?>> handleHttpClientErrorException(HttpClientErrorException e) {
-        log.error("HttpClientErrorException: {0}", e);
+        log.error("HttpClientErrorException: ", e);
         return RestResponse.error(HttpStatus.FORBIDDEN, e.getMessage(), e.getMessage());
     }
 
@@ -103,7 +103,7 @@ public class RestExceptionHandler {
     @ExceptionHandler(AccessDeniedException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ResponseEntity<RestData<?>> handleAccessDeniedSecurityException(AccessDeniedException e) {
-        log.error("AccessDeniedException: {0}", e);
+        log.error("AccessDeniedException: ", e);
         return RestResponse.error(HttpStatus.FORBIDDEN,
                 "Bạn không có quyền truy cập vào chức năng này",
                 e.getMessage());
@@ -118,7 +118,7 @@ public class RestExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<RestData<?>> handleRuntimeException(RuntimeException e) {
-        log.error("RuntimeException: {0}", e);
+        log.error("RuntimeException: ", e);
         return RestResponse.error(HttpStatus.INTERNAL_SERVER_ERROR, "Đã có lỗi xảy ra!", e.getMessage());
     }
 }

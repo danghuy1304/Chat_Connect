@@ -32,7 +32,7 @@ public class Notification extends AuditingEntity {
 
     private String type;
 
-    private boolean isRead = false;
+    private Boolean isRead = Boolean.FALSE;
 
     @Field("userId")
     @DBRef
